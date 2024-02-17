@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input, Output, EventEmitter } from '@angular/core';
 import { TestserviceService } from '../testservice.service';
 
 @Component({
@@ -8,12 +8,19 @@ import { TestserviceService } from '../testservice.service';
 })
 export class TestComponent {
   coarses: any;
-  isActive: boolean = false;
+  @Input('is-Selected') isActive: boolean = false;
+  @Output() change = new EventEmitter();
   constructor(private sharedService: TestserviceService) {
     this.coarses = sharedService.getCoarse();
   }
 
   public fillColor() {
     this.isActive = !this.isActive;
+
+    setTimeout(() => this.change.emit({ newValue: this.isActive }), 1);
   }
+}
+
+export interface NewValue {
+  newValue: boolean;
 }
