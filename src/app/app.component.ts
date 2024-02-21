@@ -18,4 +18,10 @@ export class AppComponent {
     // Console.log("the star value is ",+EventArgs.newValue);
     alert('the star value is :' + EventArgs.newValue);
   }
+
+  tweets: any = {
+    body: 'here is the body of the tweet',
+    isLiked: false,
+    likesCount: 0,
+  };
 }

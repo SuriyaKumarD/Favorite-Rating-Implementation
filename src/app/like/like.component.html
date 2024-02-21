@@ -1,0 +1,9 @@
+<i
+  class="bi"
+  [class.bi-heart]="!isActive"
+  [class.bi-heart-fill]="isActive"
+  (click)="LikedUnliked()"
+></i>
+<span>
+  {{ likesCount }}
+</span>
